@@ -1,0 +1,6 @@
+.header{
+  display: grid;
+  grid-template-columns: 1fr 4fr min-content;
+  border-bottom: 5px solid var(--grey-main-color);
+  position: sticky;
+}

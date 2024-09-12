@@ -1,0 +1,9 @@
+.header_flag{
+  height: 14px;
+  width: 24px;
+}
+.current-rate__card{
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  align-items: center;
+}
