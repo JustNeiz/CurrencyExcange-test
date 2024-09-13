@@ -1,11 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { CompanyContainerComponent } from '../../molecules/company-container/company-container.component';
 import { CurrentRateComponent } from '../../molecules/current-rate/current-rate.component';
-import { ExchangeService } from '../../../services/ExchangeService/exchange.service';
-import { log } from '@angular-devkit/build-angular/src/builders/ssr-dev-server';
+import { FetchRatesService } from '../../../services/ExchangeService/fetch-rates.service';
 import { IRatePair } from '../../../types/RatePair';
-import { ICurrencyFlag } from '../../../types/ICurrencyFlag';
 
 @Component({
   selector: 'app-header',
@@ -14,12 +12,14 @@ import { ICurrencyFlag } from '../../../types/ICurrencyFlag';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   ratesArr: IRatePair[] = [];
 
-  constructor(private exchangeService: ExchangeService) {
+  ngOnInit() {
     this.updateRates(['USD', 'EUR']);
   }
+
+  constructor(private exchangeService: FetchRatesService) {}
 
   updateRates(currencies: string[]) {
     currencies.forEach((currency) => {

@@ -1,4 +1,4 @@
-export interface IExchangeRateResponse {
+export interface IFetchRatesRespone {
   result: string;
   documentation: string;
   terms_of_use: string;

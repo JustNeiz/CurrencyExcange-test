@@ -1,7 +1,6 @@
 .option{
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
   height: 100%;
   width: 100%;
   padding: 8px;
@@ -12,4 +11,6 @@
 }
 .option-text{
   margin-right: 16px;
+  font-size: 20px;
+
 }

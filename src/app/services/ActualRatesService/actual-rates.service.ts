@@ -9,8 +9,6 @@ export class ActualRatesService {
   private ratesStateSubject: BehaviorSubject<ICurrencyRatePair[]> =
     new BehaviorSubject<ICurrencyRatePair[]>([]);
 
-  constructor() {}
-
   setRatesState(newArray: ICurrencyRatePair[]): void {
     this.ratesStateSubject.next(newArray);
   }

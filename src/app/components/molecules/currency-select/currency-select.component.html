@@ -1,9 +1,0 @@
-<mat-form-field>
-  <mat-label>Choose a currency</mat-label>
-  <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let flag of filteredFlags | async" [value]="flag.key" >
-      <app-select-option  [flag]="flag" [currencyKey]="currencyKey"></app-select-option>
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>

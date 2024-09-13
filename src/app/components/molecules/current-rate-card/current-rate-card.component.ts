@@ -1,5 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
-import { ICurrencyFlag } from '../../../types/ICurrencyFlag';
+import { Component, Input, OnInit } from '@angular/core';
 import { currencyFlags } from '../../../constants/currencyFlags';
 import { IRatePair } from '../../../types/RatePair';
 
@@ -10,17 +9,12 @@ import { IRatePair } from '../../../types/RatePair';
   templateUrl: './current-rate-card.component.html',
   styleUrl: './current-rate-card.component.scss',
 })
-export class CurrentRateCardComponent {
+export class CurrentRateCardComponent implements OnInit {
   @Input() rate!: IRatePair;
+
   imagePath: string = '';
   ngOnInit(): void {
     this.imagePath = this.getImagePath(this.rate);
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['rate']) {
-      this.imagePath = this.getImagePath(this.rate);
-    }
   }
 
   getImagePath(rate: IRatePair): string {

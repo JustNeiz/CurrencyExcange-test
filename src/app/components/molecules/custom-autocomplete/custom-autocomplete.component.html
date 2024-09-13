@@ -5,14 +5,12 @@
     [formControl]="myControl"
     (focus)="showOptionsList()"
     (blur)="hideOptionsList()"
-    placeholder="USD"
-  />
+    placeholder="USD"/>
   <div class="options" *ngIf="showOptions">
     <div
       *ngFor="let flag of filteredFlags | async"
       (click)="selectOption(flag.key)"
-      class="option"
-    >
+      class="option">
       <app-select-option (flagSelected)="onFlagSelected($event)" [flag]="flag" [currencyKey]="currencyKey"></app-select-option>
     </div>
   </div>

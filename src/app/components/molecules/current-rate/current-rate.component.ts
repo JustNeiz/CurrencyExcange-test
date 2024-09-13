@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ICurrencyFlag } from '../../../types/ICurrencyFlag';
+import { Component, Input } from '@angular/core';
 import { CurrentRateCardComponent } from '../current-rate-card/current-rate-card.component';
 import { IRatePair } from '../../../types/RatePair';
 import { CommonModule } from '@angular/common';

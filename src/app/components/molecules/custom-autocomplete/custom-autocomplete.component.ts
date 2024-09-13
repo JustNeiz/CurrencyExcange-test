@@ -14,7 +14,7 @@ import { currencyFlags } from '../../../constants/currencyFlags';
 import { SelectOptionComponent } from '../../atoms/select-option/select-option.component';
 import { CurrencyAmountsState } from '../../../services/CurrencyAmountsStateService/currency-amounts-state.service';
 import { ConvertService } from '../../../services/ConvertService/convert.service';
-import { ICurrencyAmountsStateTypes } from '../../../services/CurrencyAmountsStateService/currency-amounts-state.types';
+import { ICurrencyAmountsState } from '../../../services/CurrencyAmountsStateService/currency-amounts-state.types';
 
 @Component({
   selector: 'app-custom-autocomplete',
@@ -34,7 +34,8 @@ export class CustomAutocompleteComponent implements OnInit {
   filteredFlags!: Observable<ICurrencyFlag[]>;
   currencyFlags: ICurrencyFlag[] = currencyFlags;
   selectedFlag!: { key: string; value: string };
-  state!: ICurrencyAmountsStateTypes;
+  state!: ICurrencyAmountsState;
+
   @Input() currencyKey!: 'currency_1' | 'currency_2';
   @Output() currencyChange = new EventEmitter<string>();
 
@@ -52,7 +53,6 @@ export class CustomAutocompleteComponent implements OnInit {
   onFlagSelected(flag: { key: string; value: string }) {
     this.selectedFlag = flag;
     this.stateService.setCurrency(this.currencyKey, this.selectedFlag.key);
-    console.log(this.stateService.getState());
     this.convertState();
   }
 
@@ -68,12 +68,7 @@ export class CustomAutocompleteComponent implements OnInit {
         this.stateService.getState().amount_2,
         this.state.currency_2,
       );
-      console.log(this.state.currency_2 + this.state.amount_2);
-      console.log(this.stateService.getState().amount_2);
     }
-  }
-  onCurrencySelected(selectedCurrency: string) {
-    this.currencyChange.emit(selectedCurrency);
   }
 
   private _filter(value: string): ICurrencyFlag[] {

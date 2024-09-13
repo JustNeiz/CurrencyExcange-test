@@ -6,8 +6,8 @@
   margin: 25px;
   border-radius: 30px;
   padding: 20px;
-
 }
+
 .inputContainer{
   display: grid;
   grid-template-columns: 5fr 1fr;

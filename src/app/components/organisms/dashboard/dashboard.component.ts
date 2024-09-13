@@ -1,14 +1,7 @@
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
-import { ExchangeService } from '../../../services/ExchangeService/exchange.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CurrencyExchangeTitleComponent } from '../../atoms/currency-exchange-title/currency-exchange-title.component';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyInputComponent } from '../../atoms/currency-input/currency-input.component';
-import { CurrencySelectComponent } from '../../molecules/currency-select/currency-select.component';
 import { CustomAutocompleteComponent } from '../../molecules/custom-autocomplete/custom-autocomplete.component';
 import { Subscription } from 'rxjs';
 import { CurrencyAmountsState } from '../../../services/CurrencyAmountsStateService/currency-amounts-state.service';
@@ -20,14 +13,13 @@ import { CurrencyAmountsState } from '../../../services/CurrencyAmountsStateServ
     CurrencyExchangeTitleComponent,
     ReactiveFormsModule,
     CurrencyInputComponent,
-    CurrencySelectComponent,
     FormsModule,
     CustomAutocompleteComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   amount_1!: number;
   amount_2!: number;
