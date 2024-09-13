@@ -11,7 +11,7 @@ export class CurrencyAmountsState {
     amount_1: 0,
     amount_2: 0,
     currency_1: 'USD',
-    currency_2: 'EUR',
+    currency_2: 'USD',
   });
 
   // Делаем state$ доступным для подписок

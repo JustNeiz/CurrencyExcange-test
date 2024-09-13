@@ -2,8 +2,14 @@
   display: flex;
   justify-content: space-between;
   font-size: 20px;
+  height: 100%;
+  width: 100%;
+  padding: 8px;
 }
 .option-image{
   height: 20px;
   width: 40px;
+}
+.option-text{
+  margin-right: 16px;
 }

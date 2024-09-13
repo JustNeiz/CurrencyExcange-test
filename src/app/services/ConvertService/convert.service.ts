@@ -26,7 +26,6 @@ export class ConvertService {
     });
 
     this.currencyAmountsState.setAmount('amount_2', result);
-    return result;
   }
   convertAmount1(amount2: number, currency2: string) {
     let inDollars = 0;
@@ -46,7 +45,6 @@ export class ConvertService {
     });
 
     this.currencyAmountsState.setAmount('amount_1', result);
-    return result;
   }
 
   constructor(

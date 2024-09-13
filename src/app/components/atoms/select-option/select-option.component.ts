@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { currencyFlags } from '../../../constants/currencyFlags';
 import { CurrencyAmountsState } from '../../../services/CurrencyAmountsStateService/currency-amounts-state.service';
 import { Subscription } from 'rxjs';
 import { CurrencyInputComponent } from '../currency-input/currency-input.component';
+import { ConvertService } from '../../../services/ConvertService/convert.service';
+import { ICurrencyAmountsStateTypes } from '../../../services/CurrencyAmountsStateService/currency-amounts-state.types';
 
 @Component({
   selector: 'app-select-option',
@@ -14,10 +16,10 @@ import { CurrencyInputComponent } from '../currency-input/currency-input.compone
 export class SelectOptionComponent {
   @Input() flag!: { key: string; value: string };
   @Input() currencyKey!: 'currency_1' | 'currency_2';
+  @Output() flagSelected = new EventEmitter<{ key: string; value: string }>();
 
+  state!: ICurrencyAmountsStateTypes;
   onOptionClick() {
-    this.stateService.setCurrency(this.currencyKey, this.flag.key);
+    this.flagSelected.emit(this.flag);
   }
-  constructor(private stateService: CurrencyAmountsState) {}
-  protected readonly currencyFlags = currencyFlags;
 }

@@ -18,10 +18,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './currency-input.component.html',
   styleUrls: ['./currency-input.component.scss'],
 })
-export class CurrencyInputComponent implements OnInit, OnDestroy {
+export class CurrencyInputComponent {
   @Input() amountKey!: 'amount_1' | 'amount_2';
   @Input() amountValue!: number;
-  currencyAmount!: number;
   private subscription!: Subscription;
 
   constructor(
@@ -29,47 +28,30 @@ export class CurrencyInputComponent implements OnInit, OnDestroy {
     private convertService: ConvertService,
   ) {}
 
-  ngOnInit(): void {
-    this.subscription = this.stateService.state$.subscribe(() => {
-      this.currencyAmount = this.amountValue;
-    });
-    console.log(this.amountValue);
-  }
-
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
   onInputChange(event: Event): void {
     const inputValue = (event.target as HTMLInputElement).value;
-    if (inputValue) {
-      this.currencyAmount = parseFloat(inputValue);
-      this.stateService.setAmount(this.amountKey, this.currencyAmount);
-      this.updateState();
+    const parsedValue = parseFloat(inputValue);
+
+    if (isNaN(parsedValue) || parsedValue < 0) {
+      // Если значение не число или отрицательное, сбрасываем на 0
+      this.amountValue = 0;
     } else {
-      this.stateService.setAmount(this.amountKey, 0);
-      this.updateState();
+      this.amountValue = parsedValue;
     }
+    this.stateService.setAmount(this.amountKey, this.amountValue);
+    this.updateState();
+
+    console.log('input:' + this.stateService.state$);
   }
 
   updateState() {
     const state = this.stateService.getState();
 
     if (this.amountKey === 'amount_1') {
-      const convertedAmount = this.convertService.convertAmount2(
-        this.currencyAmount,
-        state.currency_1,
-      );
-      this.stateService.setAmount('amount_2', convertedAmount);
+      this.convertService.convertAmount2(this.amountValue, state.currency_1);
     } else {
-      const convertedAmount = this.convertService.convertAmount1(
-        this.currencyAmount,
-        state.currency_2,
-      );
-      this.stateService.setAmount('amount_1', convertedAmount);
+      this.convertService.convertAmount1(this.amountValue, state.currency_2);
     }
-    console.log(state);
+    console.log('updated');
   }
 }

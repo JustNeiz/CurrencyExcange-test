@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { ExchangeService } from '../../../services/ExchangeService/exchange.service';
 import { CurrencyExchangeTitleComponent } from '../../atoms/currency-exchange-title/currency-exchange-title.component';
 import {
@@ -33,7 +33,7 @@ export class DashboardComponent {
   amount_2!: number;
   currency_1!: string;
   currency_2!: string;
-  @Output() dataEmitter = new EventEmitter();
+
   ngOnInit(): void {
     this.subscription = this.stateService.state$.subscribe((state) => {
       this.amount_1 = state.amount_1;
@@ -42,11 +42,11 @@ export class DashboardComponent {
       this.currency_2 = state.currency_2;
     });
   }
-  outputData() {
-    this.dataEmitter.emit(this.amount_1);
-    this.dataEmitter.emit(this.amount_2);
-    this.dataEmitter.emit(this.currency_1);
-    this.dataEmitter.emit(this.currency_2);
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
+
   constructor(private stateService: CurrencyAmountsState) {}
 }

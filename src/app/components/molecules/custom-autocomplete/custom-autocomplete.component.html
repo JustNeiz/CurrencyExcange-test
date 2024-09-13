@@ -5,7 +5,7 @@
     [formControl]="myControl"
     (focus)="showOptionsList()"
     (blur)="hideOptionsList()"
-    placeholder="Currency"
+    placeholder="USD"
   />
   <div class="options" *ngIf="showOptions">
     <div
@@ -13,7 +13,7 @@
       (click)="selectOption(flag.key)"
       class="option"
     >
-      <app-select-option  [flag]="flag" [currencyKey]="currencyKey"></app-select-option>
+      <app-select-option (flagSelected)="onFlagSelected($event)" [flag]="flag" [currencyKey]="currencyKey"></app-select-option>
     </div>
   </div>
 </div>

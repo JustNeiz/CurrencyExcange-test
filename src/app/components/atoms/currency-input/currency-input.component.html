@@ -1,1 +1,7 @@
-<input type="text" [(ngModel)]="currencyAmount" (input)="onInputChange($event)" class="input-currency"  placeholder="Введите текст">
+<input type="text"
+       min="0"
+       step="any" [(ngModel)]="amountValue"
+       (input)="onInputChange($event)"
+       class="input-currency"
+       placeholder="Enter amount">
+
