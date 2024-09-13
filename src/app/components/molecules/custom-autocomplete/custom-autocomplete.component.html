@@ -1,0 +1,19 @@
+<div class="autocomplete">
+  <input
+    class="autocomplete-input"
+    type="text"
+    [formControl]="myControl"
+    (focus)="showOptionsList()"
+    (blur)="hideOptionsList()"
+    placeholder="Currency"
+  />
+  <div class="options" *ngIf="showOptions">
+    <div
+      *ngFor="let flag of filteredFlags | async"
+      (click)="selectOption(flag.key)"
+      class="option"
+    >
+      <app-select-option  [flag]="flag" [currencyKey]="currencyKey"></app-select-option>
+    </div>
+  </div>
+</div>
