@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import {
   AsyncPipe,
   CommonModule,
@@ -40,6 +40,8 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './currency-select.component.scss',
 })
 export class CurrencySelectComponent implements OnInit {
+  @Input() currencyKey!: 'currency_1' | 'currency_2';
+
   myControl = new FormControl('');
   filteredFlags!: Observable<ICurrencyFlag[]>;
   currencyFlags: ICurrencyFlag[] = currencyFlags;

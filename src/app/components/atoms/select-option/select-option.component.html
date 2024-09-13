@@ -1,4 +1,5 @@
-  <div class="option">
-    <img [src]="flag.value" width="20px" height="20px">
+  <div class="option"  (click)="onOptionClick()">
+    <img [src]="flag.value"  alt="flag" class="option-image">
     <span>{{flag.key}}</span>
   </div>
+

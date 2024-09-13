@@ -1,1 +1,1 @@
-<input type="number" class="input-currency">
+<input type="text" [(ngModel)]="currencyAmount" (input)="onInputChange($event)" class="input-currency"  placeholder="Введите текст">

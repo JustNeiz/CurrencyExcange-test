@@ -1,6 +1,10 @@
 .header{
+  padding: 5px;
   display: grid;
   grid-template-columns: 1fr 4fr min-content;
-  border-bottom: 5px solid var(--grey-main-color);
+  border-bottom: 1px solid white;
+  align-items: center;
   position: sticky;
+  font-family: 'Ubuntu Mono', monospace;
+  background-color: var(--black-main-color);
 }

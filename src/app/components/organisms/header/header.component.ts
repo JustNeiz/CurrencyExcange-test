@@ -28,7 +28,6 @@ export class HeaderComponent {
           key: currency,
           value: res.conversion_rates['UAH'],
         });
-        console.log('header' + this.ratesArr);
       });
     });
   }

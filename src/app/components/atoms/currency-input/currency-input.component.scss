@@ -1,0 +1,10 @@
+.input-currency{
+  width: 100%;
+  background-color: var(--light-grey-color);
+  border: none;
+  color: white;
+  &:focus{
+    outline: none;
+  };
+  font-size: 48px;
+}

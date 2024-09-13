@@ -1,4 +1,9 @@
 .option{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.option-image{
+  height: 20px;
+  width: 40px;
 }

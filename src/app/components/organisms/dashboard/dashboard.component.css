@@ -2,5 +2,19 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  margin: 25px;
+  border-radius: 30px;
+  padding: 20px;
 
+}
+.inputContainer{
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  padding: 40px;
+  align-items: center;
+  margin: 20px 0;
+  background-color: var(--light-grey-color);
+  border-radius: 30px;
 }
