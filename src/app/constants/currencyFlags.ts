@@ -1,5 +1,7 @@
 export const currencyFlags: { key: string; value: string }[] = [
   { key: 'USD', value: 'https://flagcdn.com/w320/us.png' }, // США
+  { key: 'EUR', value: 'https://flagcdn.com/w320/eu.png' }, // Евросоюз
+  { key: 'UAH', value: 'https://flagcdn.com/w320/ua.png' }, // Украина
   { key: 'AED', value: 'https://flagcdn.com/w320/ae.png' }, // ОАЭ
   { key: 'AFN', value: 'https://flagcdn.com/w320/af.png' }, // Афганистан
   { key: 'ALL', value: 'https://flagcdn.com/w320/al.png' }, // Албания
@@ -42,7 +44,6 @@ export const currencyFlags: { key: string; value: string }[] = [
   { key: 'EGP', value: 'https://flagcdn.com/w320/eg.png' }, // Египет
   { key: 'ERN', value: 'https://flagcdn.com/w320/er.png' }, // Эритрея
   { key: 'ETB', value: 'https://flagcdn.com/w320/et.png' }, // Эфиопия
-  { key: 'EUR', value: 'https://flagcdn.com/w320/eu.png' }, // Евросоюз
   { key: 'FJD', value: 'https://flagcdn.com/w320/fj.png' }, // Фиджи
   { key: 'FKP', value: 'https://flagcdn.com/w320/fk.png' }, // Фолклендские острова
   { key: 'FOK', value: 'https://flagcdn.com/w320/fo.png' }, // Фарерские острова
@@ -143,9 +144,7 @@ export const currencyFlags: { key: string; value: string }[] = [
   { key: 'TVD', value: 'https://flagcdn.com/w320/tv.png' }, // Тувалу
   { key: 'TWD', value: 'https://flagcdn.com/w320/tw.png' }, // Тайвань
   { key: 'TZS', value: 'https://flagcdn.com/w320/tz.png' }, // Танзания
-  { key: 'UAH', value: 'https://flagcdn.com/w320/ua.png' }, // Украина
   { key: 'UGX', value: 'https://flagcdn.com/w320/ug.png' }, // Уганда
-  { key: 'USD', value: 'https://flagcdn.com/w320/us.png' }, // США
   { key: 'UYU', value: 'https://flagcdn.com/w320/uy.png' }, // Уругвай
   { key: 'UZS', value: 'https://flagcdn.com/w320/uz.png' }, // Узбекистан
   { key: 'VES', value: 'https://flagcdn.com/w320/ve.png' }, // Венесуэла
